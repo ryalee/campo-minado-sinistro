@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💥 Campo Minado
 
-## Getting Started
+Uma recriação do clássico **Campo Minado**, desenvolvida com **Next.js**, **TypeScript**, **Tailwind**, **Zustand** e **Framer Motion**.
 
-First, run the development server:
+> Projeto focado em performance, boas práticas de arquitetura web, animações fluidas e experiência do usuário (UI/UX).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Primeiro Clique Seguro:** O primeiro clique no tabuleiro é sempre seguro e gera uma zona inicial sem minas.
+- **Revelação em Cascata (Flood Fill):** Algoritmo de busca em largura (BFS) para abrir áreas vazias automaticamente.
+- **Animações de Onda no Game Over:** Efeito visual em cadeia com *Framer Motion* calculando a distância entre a mina clicada e as demais.
+- **Níveis de Dificuldade:** Suporte aos modos *Iniciante*, *Intermediário*, *Avançado* e *Personalizado*.
+- **Controle de Estado Global:** Gerenciamento reativo e escalável utilizando *Zustand*.
+- **Layout Responsivo:** Adaptado para telas mobile e desktop.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Linguagem:** [TypeScript](https://www.typescript.org/)
+- **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
+- **Gerenciamento de Estado:** [Zustand](https://zustand-demo.pmnd.rs/)
+- **Animações:** [Framer Motion](https://www.framer.com/motion/)
+- **Deploy:** [Vercel](https://vercel.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Jogue <a href="https://campo-minado-sinistro.vercel.app/">Aqui 🕹️</a> 
