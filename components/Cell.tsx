@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Cell as CellType } from "../types/minesweeper";
 import { useMinesweeperStore } from "../store/useMinesweeperStore";
 import Image from "next/image";
-import { playBombSound, playCustomSound } from "@/utils/audio";
+import { playBombSound } from "@/utils/audio";
 
 interface CellProps {
   cell: CellType;

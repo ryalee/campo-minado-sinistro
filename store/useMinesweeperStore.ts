@@ -15,7 +15,7 @@ import {
 } from "../utils/minesweeperLogic";
 
 interface MinesweeperState {
-  // estado dojogo
+  // estado do jogo
   difficulty: Difficulty;
   config: GameConfig;
   board: Board;
@@ -48,6 +48,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
   isFirstClick: true,
   flagsPlacedCount: 0,
   timerSeconds: 0,
+  triggeredMineCoordinate: null,
 
   setDifficulty: (newDifficulty: Difficulty) => {
     const config = DIFFICULTY_CONFIGS[newDifficulty];
@@ -60,6 +61,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
       isFirstClick: true,
       flagsPlacedCount: 0,
       timerSeconds: 0,
+      triggeredMineCoordinate: null,
     });
   },
 
@@ -71,6 +73,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
       isFirstClick: true,
       flagsPlacedCount: 0,
       timerSeconds: 0,
+      triggeredMineCoordinate: null,
     });
   },
 
@@ -95,7 +98,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
       const revealedBoardOnLoss = newBoard.map((r) =>
         r.map((cell) => (cell.isMine ? { ...cell, isRevealed: true } : cell)),
       );
-      
+
       set({
         board: revealedBoardOnLoss,
         gameStatus: "lost",
