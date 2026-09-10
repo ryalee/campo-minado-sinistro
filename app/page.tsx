@@ -19,8 +19,8 @@ export default function MinesweeperPage() {
               onClick={() => setDifficulty(level)}
               className={`px-3 py-1 text-xs md:text-sm font-semibold rounded capitalize transition-colors ${
                 difficulty === level
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
+                  ? 'bg-green-800 text-white'
+                  : 'bg-gray-300 hover:bg-gray-200 text-gray-800'
               }`}
             >
               {level === 'beginner' ? 'Iniciante' : level === 'intermediate' ? 'Intermediário' : 'Especialista'}

@@ -95,6 +95,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
       const revealedBoardOnLoss = newBoard.map((r) =>
         r.map((cell) => (cell.isMine ? { ...cell, isRevealed: true } : cell)),
       );
+      
       set({
         board: revealedBoardOnLoss,
         gameStatus: "lost",
