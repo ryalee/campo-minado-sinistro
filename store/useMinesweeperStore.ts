@@ -26,13 +26,13 @@ interface MinesweeperState {
   triggeredMineCoordinate: { row: number; col: number } | null;
 
   // ações do usuário
-  setDifficulty: (difficulty: Difficulty) => void;
+  setDifficulty: (difficulty: Difficulty, customConfig?: GameConfig) => void;
   startNewGame: () => void;
   handleCellClick: (row: number, col: number) => void;
   handleCellRightClick: (
     row: number,
     col: number,
-    event: React.MouseEvent,
+    event: React.MouseEvent
   ) => void;
   incrementTimer: () => void;
 }
@@ -42,7 +42,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
   config: DIFFICULTY_CONFIGS.beginner,
   board: createEmptyBoard(
     DIFFICULTY_CONFIGS.beginner.rows,
-    DIFFICULTY_CONFIGS.beginner.cols,
+    DIFFICULTY_CONFIGS.beginner.cols
   ),
   gameStatus: "idle",
   isFirstClick: true,
@@ -50,8 +50,12 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
   timerSeconds: 0,
   triggeredMineCoordinate: null,
 
-  setDifficulty: (newDifficulty: Difficulty) => {
-    const config = DIFFICULTY_CONFIGS[newDifficulty];
+  setDifficulty: (newDifficulty: Difficulty, customConfig?: GameConfig) => {
+    // se for 'custom', usa as configurações personalizadas ou o padrão 9x9 com 10 minas
+    const config: GameConfig =
+      newDifficulty === "custom"
+        ? customConfig || { rows: 9, cols: 9, mines: 10 }
+        : DIFFICULTY_CONFIGS[newDifficulty];
 
     set({
       difficulty: newDifficulty,
@@ -96,7 +100,7 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
     if (hitMine) {
       // revela todas as minas do mapa em caso de derrota
       const revealedBoardOnLoss = newBoard.map((r) =>
-        r.map((cell) => (cell.isMine ? { ...cell, isRevealed: true } : cell)),
+        r.map((cell) => (cell.isMine ? { ...cell, isRevealed: true } : cell))
       );
 
       set({
@@ -117,7 +121,11 @@ export const useMinesweeperStore = create<MinesweeperState>((set, get) => ({
     }
   },
 
-  handleCellRightClick: (row: number, col: number, event: React.MouseEvent) => {
+  handleCellRightClick: (
+    row: number,
+    col: number,
+    event: React.MouseEvent
+  ) => {
     event.preventDefault(); // previne o menu de contexto do navegador
 
     const { board, gameStatus, flagsPlacedCount } = get();
