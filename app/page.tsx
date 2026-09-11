@@ -33,7 +33,7 @@ export default function MinesweeperPage() {
       </div>
 
       <footer>
-        <p className="text-white text-lg mt-15">Campo Minado Sinistro | Desenvolvido por <a href="https://ryan-alecrim-portfolio.vercel.app/" target='_blank' className='underline hover:text-amber-100 font-mono'>Ryan Alecrim Sodré</a> | {new Date().getFullYear()} </p>
+        <p className="text-white text-xs md:text-lg mt-15">Campo Minado Sinistro | Desenvolvido por <a href="https://ryan-alecrim-portfolio.vercel.app/" target='_blank' className='underline hover:text-amber-100 font-mono'>Ryan Alecrim Sodré</a> | {new Date().getFullYear()} </p>
       </footer>
     </main>
   );
